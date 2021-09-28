@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/logo2.png";
 import { Context } from "../../context/ProductsContext";
 
@@ -38,15 +39,14 @@ export default function Navbar({menubar,setMenubar,setCartIndex}) {
         <div
           className={ `flex-auto ${menubar} text-center text-lg text-white justify-center md:flex-row md:flex` }
         >
-          <div className="flex-initial px-4 py-1">Home</div>
-          <div className="flex-initial px-4 py-1">About Us</div>
-          <div className="flex-initial px-4 py-1">Service</div>
-          <div className="flex-initial px-4 py-1">Contact Us</div>
+          <Link to="/"><div className="flex-initial px-4 py-1">Home</div></Link>
+          <Link to="/about"><div className="flex-initial px-4 py-1">About Us</div></Link>
+          <Link to="/contact"><div className="flex-initial px-4 py-1">Contact Us</div></Link>
         </div>
 
         <div className={`flex-initial ${menubar} text-center justify-center md:flex`}>
             <div className="mx-auto text-lg text-white p-1 ">
-            <i className="fas fa-cart-arrow-down hover:text-pink-500 cursor-pointer" onClick={(e)=>setCartIndex("z-30")}>{totalItems>0?totalItems:null}</i>
+            <i className="fas fa-cart-arrow-down hover:text-pink-500 cursor-pointer text-lg" onClick={(e)=>setCartIndex("z-30")}><sup className="p-1 pb-2">{totalItems>0?totalItems:null}</sup></i>
             </div>
         </div>
         

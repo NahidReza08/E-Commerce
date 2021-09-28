@@ -25,12 +25,10 @@ export default function Product({ product }) {
       if(index===-1)copycartProducts.push({'id':id,'quantity':quantity-1})
       else copycartProducts[index].quantity = quantity-1;
     }
-    setCartProducts(copycartProducts);
-    console.log(cartProducts);
+    setCartProducts(copycartProducts.filter(product=>product.quantity>0));
+    //console.log(cartProducts);
   }
 
-
-  //console.log(title, price, category, image, rate, count);
   return (
     <div
       className="
@@ -130,7 +128,7 @@ export default function Product({ product }) {
             onClick={(e) => buttonClickHandler('-')}
           >
             <i
-              class="fas fa-minus-square hover:ring-8
+              className="fas fa-minus-square hover:ring-8
             hover:bg-pink-900
             focus:outline-black"
             ></i>
@@ -141,7 +139,7 @@ export default function Product({ product }) {
             onClick={(e) => buttonClickHandler('+')}
           >
             <i
-              class="fas fa-plus-square hover:ring-8
+              className="fas fa-plus-square hover:ring-8
             hover:bg-pink-900
             focus:outline-black"
             ></i>

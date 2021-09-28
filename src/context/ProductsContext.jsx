@@ -8,7 +8,8 @@ export default function ProductsContext({ children }) {
 
   useEffect(() => {
     //console.log("Useeffect has called.");
-    if (localStorage.getItem("items") === null) {
+    if (localStorage.getItem("products") === null) {
+      console.log("Useeffect has called.");
       fetch("https://fakestoreapi.com/products/")
         .then((response) => response.json())
         .then((responseData) =>

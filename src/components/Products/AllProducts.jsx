@@ -1,16 +1,13 @@
 import React, { useContext } from "react";
 import { Context } from "../../context/ProductsContext";
-import Product from "../Product/Product";
+import Product from "../Products/Product";
 
 export default function Body({ menubar }) {
-  const paddingTop = (menubar !== "hidden") ? "pt-72" : "pt-28";
   const { products } = useContext(Context);
 
   return (
-    <div className="z-10 relative">
-      <div
-        className={`antialiased bg-blue-200 text-gray-900 font-sans p-6 min-h-screen ${paddingTop} md:pt-28`}
-      > 
+    <div>
+      
         <div className={ `${products.length===0?'flex':'hidden'} justify-center items-center`} >
           <div className="animate-spin rounded-full h-96 w-96 border-t-4 border-pink-900"></div>
         </div>
@@ -39,7 +36,7 @@ export default function Body({ menubar }) {
             
           </div>
         </div>
-      </div>
+     
     </div>
   );
 }
